@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block title %} Register {% endblock title %}
+
+{% block content %}
+<!-- 
+Form
+-->
+<div class="container mt-5">
+  <div class="row justify-content-center ">
+      <div class="col-lg-4 border rounded-2">
+          <h2 class="mb-5 mt-3 text-center">Register</h2>
+          <form method="post">
+            {% csrf_token %}
+              {% for field in form %}
+                {% if field.errors %}
+                  <div class="mb-3">  
+                    <label for="{{field.name}}" class="form-label">{{field.name}}</label>
+                    {{field}}
+                    <p>{{field.errors}}</p>
+                  </div>
+                {% else %}
+                  <div class="mb-3">  
+                    <label for="{{field.name}}" class="form-label">{{field.name}}</label>
+                    {{field}}
+                  </div>
+                {% endif %}
+              {% endfor %}
+              <div class="mb-3">
+                <p>Already have an account <a href="{% url 'authentication:login' %}" >login</a></p>
+              </div>
+              <button type="submit" class="btn btn-primary mb-3">Submit</button>
+            </form>
+      </div>
+  </div>
+</div>
+
+{% endblock content %}

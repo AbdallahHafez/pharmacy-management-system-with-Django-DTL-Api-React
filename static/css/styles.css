@@ -1,0 +1,96 @@
+
+/* 
+------------------------
+    Table of contents:
+        1 - navbar styling.
+        2 - orders table.
+        3 - footer.
+        4- customers.    
+------------------------
+*/
+/* 
+    1 - navbar styling.
+*/
+
+button.custom-navbar-toggler:focus,
+button.custom-navbar-toggler:active{
+    outline: none;
+    box-shadow:none
+}
+a.custom-navbar-brand{
+    font-size: 22px;
+    font-weight: bolder;
+    color:#5e70ff;
+    letter-spacing: 1px;
+}
+ul.navbar-list li{
+    font-size: 20;
+    font-weight: bold;
+}
+
+ul.navbar-list li a.login-btn{
+    border : 1px solid green;
+    border-radius: 7px;
+    cursor: pointer;
+    transform:translateY(-1px);
+    width:80px;
+    text-align: center;
+}
+ul.navbar-list li a.login-btn:hover{
+    background-color:  green;
+    color: white;
+
+}
+/* 
+    2 - orders table
+*/
+
+section.orders-table-section h2{
+    font-size: 20px;
+}
+
+.create-order-section{
+    overflow: hidden;
+}
+
+/* 
+    3 - footer.
+*/
+
+footer p{
+    margin-bottom: 0;
+}
+
+/* 
+    4- customers
+*/
+.customer-card-left span{
+    border-radius: 50%;
+    display: flex;
+    width: 30px ;
+    height: 30px ;
+    align-items:center;
+    justify-content: center;
+    margin-bottom: 5px;
+}
+
+/* 
+    5 - customer page.
+*/
+
+h2.customer-name{
+    min-width: 280px;
+    max-width: 320px;
+    font-size: 24px;
+    font-weight: bolder;
+    letter-spacing:1px;
+}
+
+/* 
+    5 - order page
+*/
+
+button.btn-controll{
+    background-color: transparent;
+    border: 1px solid rgba(128, 128, 128, 0.515);
+}

@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block title %} Add Item {% endblock title %}
+
+{% block content %}
+<!-- 
+    Form
+-->
+<div class="container mt-5">
+    <div class="row justify-content-center ">
+        <div class="col-lg-4 border rounded-2">
+            <h2 class="mb-5 mt-3 text-center">Add item to Order</h2>
+            <form method="post">
+              {% csrf_token %}
+                <div class="mb-3">
+                  <label for="user" class="form-label">User Code</label>
+                  <input type="text" class="form-control" id="user" aria-describedby="emailHelp" name="usercode">
+                </div>
+                <div class="mb-3">
+                  <label for="Quantity" class="form-label">Quantity</label>
+                  <input type="number" class="form-control" name="quantity" id="Quantity">
+                </div>
+                <button type="submit" class="btn btn-primary mb-3">Submit</button>
+              </form>
+        </div>
+    </div>
+  </div>
+{% endblock content %}

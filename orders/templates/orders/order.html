@@ -1,0 +1,72 @@
+{% extends 'base.html' %}
+
+{% block title %} Order {% endblock title %}
+
+{% block content %}
+<!-- 
+    Main section
+-->
+<main>
+    <!-- orders section -->
+    <section class="orders-section">
+      <!-- single order -->
+      <section class="orders-table-section mt-5 border container rounded-3 py-4 mb-4">
+        <div class="container d-flex justify-content-between ">
+          <h2 class="mb-4 text-success fw-bold">
+            Order at: {{order.created_at}}
+          </h2>
+          <p class="text-success fw-bold">{{order.customer.name}}</p>
+          <div class="dropdown">
+            <button class="btn btn-outline-secondary btn-sm dropdown-toggle fw-bold" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Status: 
+            </button>
+            {% if order.complete == True %}Complete{% else %}Pending{%endif  %}
+            
+            
+            <ul class="dropdown-menu">
+              <li>
+                <form action="{% url 'orders:update-order' order.id %}" method="post">
+                    {% csrf_token %}
+                  <button type="submit" class="dropdown-item" href="#">Complete</button>
+                </form>
+              </li>
+            </ul>
+          </div>
+          <p><span class="fw-bold">Total:</span>421</p>
+        </div>
+        <div class="container border rounded-3 table-responsive">
+        <table class="table table-hover  table-striped">
+          <thead>
+            <tr>
+              <th scope="col">Medicine Name</th>
+              <th scope="col">Price</th>
+              <th scope="col">Quantity</th>
+              <th scope="col">Total</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for item in order.orderitems.all %}
+                <tr>
+                <td>{{item.product.name}}</td>
+                <td>{{item.product.price}}</td>
+                <td class="d-flex column-gap-1">
+                    <form action="">
+                    <button class="btn-controll">&#43;</button>
+                    </form>
+                    {{item.quantity}} 
+                    <form class="" action="">
+                    <button class="btn-controll">&#8722;</button>
+                    </form>                  
+                </td>
+                <td>{{item.total_price}}</td>
+                </tr>
+            {% endfor %}
+
+          </tbody>
+        </table>              
+        </div>
+
+      </section>                             
+    </section>
+</main>
+{% endblock content %}
