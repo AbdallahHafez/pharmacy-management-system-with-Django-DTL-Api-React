@@ -3,7 +3,7 @@ from products.models import Product
 from customers.models import Customer
 
 class Order(models.Model):
-    customer = models.ForeignKey(Customer,on_delete=models.CASCADE)
+    customer = models.ForeignKey(Customer,on_delete=models.CASCADE,related_name='orders')
     complete = models.BooleanField(default=False)
     created_at = models.DateField(auto_now_add=True)
     def __str__(self):
